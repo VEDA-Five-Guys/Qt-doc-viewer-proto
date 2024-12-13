@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(PdfViewer_with_Qt VERSION 0.1 LANGUAGES CXX)
+project(Qt-doc-viewer-proto VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -46,7 +46,7 @@ set(PROJECT_UI
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(PdfViewer_with_Qt
+    qt_add_executable(Qt-doc-viewer-proto
         MANUAL_FINALIZATION
         main.cpp
         ${PROJECT_HEADERS}
@@ -54,24 +54,24 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         ${PROJECT_UI}
     )
 # Define target properties for Android with Qt 6 as:
-#    set_property(TARGET PdfViewer_with_Qt APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
+#    set_property(TARGET Qt-doc-viewer-proto APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
 #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
 # For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
     if(ANDROID)
-        add_library(PdfViewer_with_Qt SHARED
+        add_library(Qt-doc-viewer-proto SHARED
             ${PROJECT_SOURCES}
         )
 # Define properties for Android with Qt 5 after find_package() calls as:
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
-        add_executable(PdfViewer_with_Qt
+        add_executable(Qt-doc-viewer-proto
             ${PROJECT_SOURCES}
         )
     endif()
 endif()
 
-target_link_libraries(PdfViewer_with_Qt
+target_link_libraries(Qt-doc-viewer-proto
     PRIVATE
     Qt${QT_VERSION_MAJOR}::Core
     Qt${QT_VERSION_MAJOR}::Gui
@@ -84,9 +84,9 @@ target_link_libraries(PdfViewer_with_Qt
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.
 if(${QT_VERSION} VERSION_LESS 6.1.0)
-  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.PdfViewer_with_Qt)
+  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.Qt-doc-viewer-proto)
 endif()
-set_target_properties(PdfViewer_with_Qt PROPERTIES
+set_target_properties(Qt-doc-viewer-proto PROPERTIES
     ${BUNDLE_ID_OPTION}
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
@@ -95,12 +95,12 @@ set_target_properties(PdfViewer_with_Qt PROPERTIES
 )
 
 include(GNUInstallDirs)
-install(TARGETS PdfViewer_with_Qt
+install(TARGETS Qt-doc-viewer-proto
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
 if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(PdfViewer_with_Qt)
+    qt_finalize_executable(Qt-doc-viewer-proto)
 endif()
