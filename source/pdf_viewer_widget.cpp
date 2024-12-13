@@ -73,19 +73,15 @@ qreal Pdf_Viewer_Widget::get_current_zoom(){
 
 qreal Pdf_Viewer_Widget::get(){
     int x = pdf_document->pagePointSize(current_page_index).width();
-
     qreal point_to_pixel = 96.0 / 72.0;
-
     qreal scaled_x = x * point_to_pixel;
 
-    qDebug() << get_viewport_size().width() / scaled_x;
     return get_viewport_size().width() / scaled_x;
 }
 
 qreal Pdf_Viewer_Widget::get_2(){
     int x = pdf_document->pagePointSize(current_page_index).width();
     int y = pdf_document->pagePointSize(current_page_index).height();
-    qDebug() << x << y;
 
     qreal point_to_pixel = 96.0 / 72.0;
 
@@ -93,11 +89,9 @@ qreal Pdf_Viewer_Widget::get_2(){
     qreal scaled_y = y * point_to_pixel;
 
     if(x >= y){
-        qDebug() << get_viewport_size().width() / scaled_x;
         return get_viewport_size().width() / scaled_x;
     }
     else{
-        qDebug() << get_viewport_size().height() / scaled_y;
         return get_viewport_size().height() / scaled_y;
     }
 }

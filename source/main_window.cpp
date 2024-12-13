@@ -227,7 +227,6 @@ void Main_Window::open_pdf(const QUrl &url){
 
         connect(pdf_viewer_widget, &Pdf_Viewer_Widget::update_page_line_edit, this, [this, pdf_viewer_widget](){
             current_page_index = pdf_viewer_widget->get_current_page_index();
-            qDebug() << "current page:" << current_page_index + 1;
             page_line_edit->setText(QString::number(current_page_index + 1));
         });
         connect(pdf_viewer_widget, &Pdf_Viewer_Widget::update_current_zoom, this, [this, pdf_viewer_widget](const qreal zoom){
@@ -523,7 +522,6 @@ void Main_Window::restore_from_full_screen(){
             ui->stacked_widget->setCurrentWidget(focused_widget);
 
             emit current_widget_changed(name);
-            qDebug() << prev_zoom;
             focused_pdf_viewer_widget->zoom_changed(prev_zoom);
         }
         else{

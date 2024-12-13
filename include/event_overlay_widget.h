@@ -5,9 +5,9 @@
 #include <QObject>
 
 #define POINTING 0
-#define POINTING_WIDTH 50
+#define POINTING_WIDTH 10
 #define DRAWING 1
-#define DRAWING_WIDTH 30
+#define DRAWING_WIDTH 7
 #define DRAWING_TIMEOUT_MS 1000 // 1000ms
 
 class QPainterPath;
