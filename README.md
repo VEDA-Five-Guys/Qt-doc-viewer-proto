@@ -21,8 +21,8 @@ Before execute the file, you need to install Boost C++ Libraries with the follow
   ```
   b2 toolset=<compile_version> address-model=64 architecture=x86 --build-type=complete --prefix=<install_dir> install -j 4
   ```
-- In the System Environment variable, set the system variable BOST_ROOT = C:/boost_1_86_0_msvc and add a path to the path.  
-  The current path is C:/boost_1_86_0_msvc, but it can be set freely depending on the folder name and installation path.
+- In the System Environment variable, set the system variable and add a path to the path.  
+  The current path is BOOST_ROOT_MSVC = C:/boost_1_86_0_msvc, but it can be set freely depending on the folder name and installation path.
 
 Once the build is complete, a directory named 'PdfViewer_with_Qt.app' will be generated.
 You can run the program by navigating to 'PdfViewer_with_Qt.app/Contents/{your_OS}' and executing the following command.
