@@ -32,8 +32,8 @@ make
 ```
 Then you can see the executable file named 'Qt-doc-viewer-proto'.  
 
-Once the build is complete, a directory named 'PdfViewer_with_Qt.app' will be generated.
-You can run the program by navigating to 'PdfViewer_with_Qt.app/Contents/{your_OS}' and executing the following command.
+Once the build is complete, a directory named 'Qt-doc-viewer-proto.app' will be generated.
+You can run the program by navigating to 'Qt-doc-viewer-proto.app/Contents/{your_OS}' and executing the following command.
 
 ```bash
 ./Qt-doc-viewer-proto
